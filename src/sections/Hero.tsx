@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
         >
           <ChevronDown className="w-8 h-8" />
         </motion.button>
-      </div>
+      </motion.div>
     </section>
   )
 }
