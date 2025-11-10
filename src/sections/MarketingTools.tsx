@@ -31,13 +31,13 @@ const MarketingTools: React.FC = () => {
   const openModal = (index: number) => {
     setSelectedImage(index)
     setIsModalOpen(true)
-    document.body.style.overflow = 'hidden' // Prevent background scrolling
+    document.body.style.overflow = 'hidden'
   }
 
   const closeModal = () => {
     setIsModalOpen(false)
     setSelectedImage(null)
-    document.body.style.overflow = 'auto' // Re-enable scrolling
+    document.body.style.overflow = 'auto'
   }
 
   const goToNext = () => {
@@ -52,7 +52,6 @@ const MarketingTools: React.FC = () => {
     }
   }
 
-  // Handle keyboard navigation
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isModalOpen) return
@@ -97,7 +96,6 @@ const MarketingTools: React.FC = () => {
                   whileHover={{ scale: 1.02 }}
                   className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 text-center group relative"
                 >
-                  {/* Image Container with Zoom Button */}
                   <div className="relative w-32 h-32 bg-gray-200 dark:bg-gray-700 rounded-lg mx-auto mb-4 flex items-center justify-center overflow-hidden">
                     <img
                       src={item.image}
@@ -105,7 +103,6 @@ const MarketingTools: React.FC = () => {
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
 
-                    {/* Zoom Button */}
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
@@ -131,7 +128,6 @@ const MarketingTools: React.FC = () => {
         </div>
       </section>
 
-      {/* Image Modal */}
       <AnimatePresence>
         {isModalOpen && selectedImage !== null && (
           <motion.div
@@ -141,7 +137,6 @@ const MarketingTools: React.FC = () => {
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
             onClick={closeModal}
           >
-            {/* Modal Content */}
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
@@ -150,7 +145,6 @@ const MarketingTools: React.FC = () => {
               className="relative max-w-4xl max-h-[90vh] mx-4"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
@@ -160,7 +154,6 @@ const MarketingTools: React.FC = () => {
                 <X className="w-6 h-6 text-white" />
               </motion.button>
 
-              {/* Navigation Buttons */}
               {marketingItems.length > 1 && (
                 <>
                   <motion.button
@@ -183,7 +176,6 @@ const MarketingTools: React.FC = () => {
                 </>
               )}
 
-              {/* Image */}
               <div className="relative rounded-2xl overflow-hidden bg-gray-900">
                 <img
                   src={marketingItems[selectedImage].image}
@@ -191,7 +183,6 @@ const MarketingTools: React.FC = () => {
                   className="w-full h-auto max-h-[80vh] object-contain"
                 />
 
-                {/* Image Info */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                   <h3 className="text-xl font-bold text-white mb-2">
                     {marketingItems[selectedImage].name}
@@ -202,7 +193,6 @@ const MarketingTools: React.FC = () => {
                 </div>
               </div>
 
-              {/* Image Counter */}
               {marketingItems.length > 1 && (
                 <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-white/10 rounded-full px-4 py-2 backdrop-blur-sm">
                   <span className="text-white text-sm font-medium">
@@ -212,7 +202,6 @@ const MarketingTools: React.FC = () => {
               )}
             </motion.div>
 
-            {/* Keyboard Hint */}
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
               <p className="text-gray-400 text-sm">
                 Use ← → arrow keys to navigate • ESC to close

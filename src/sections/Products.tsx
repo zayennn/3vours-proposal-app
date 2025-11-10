@@ -7,7 +7,7 @@ import { Flame, Citrus, Dessert } from 'lucide-react'
 import BaksoMercon from '../assets/images/products/bakso.jpg'
 import Mocktail from '../assets/images/products/moctail.jpg'
 import RotiStuff from '../assets/images/products/roti.jpg'
-import { image } from 'framer-motion/client'
+// import { image } from 'framer-motion/client'
 
 const Products: React.FC = () => {
   const ref = useRef(null)
