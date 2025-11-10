@@ -4,6 +4,11 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { Flame, Citrus, Dessert } from 'lucide-react'
 
+import BaksoMercon from '../assets/images/products/bakso.jpg'
+import Mocktail from '../assets/images/products/moctail.jpg'
+import RotiStuff from '../assets/images/products/roti.jpg'
+import { image } from 'framer-motion/client'
+
 const Products: React.FC = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
@@ -13,19 +18,22 @@ const Products: React.FC = () => {
       name: 'Bakso Mercon',
       description: 'Bakso daging sapi berkualitas dengan isian cabai rawit yang meledak di mulut, memberikan sensasi pedas yang menggugah selera. Dibuat dengan bahan-bahan pilihan dan bumbu rahasia yang membuatnya istimewa.',
       icon: Flame,
-      color: 'red'
+      color: 'red',
+      image: BaksoMercon
     },
     {
       name: 'Non-Alcoholic Mocktail',
       description: 'Minuman segar tanpa alkohol dengan perpaduan buah-buahan fresh dan soda. Tersedia dalam berbagai varian rasa yang menyegarkan, cocok untuk menemani makanan pedas atau dinikmati sendiri.',
       icon: Citrus,
-      color: 'green'
+      color: 'green',
+      image: Mocktail
     },
     {
       name: 'Stuffed Dessert Roti',
       description: 'Roti lembut dengan berbagai isian dessert yang manis dan lezat. Tersedia pilihan isian seperti coklat, keju, green tea, dan red velvet. Perfect untuk pencinta manis.',
       icon: Dessert,
-      color: 'yellow'
+      color: 'yellow',
+      image: RotiStuff
     }
   ]
 
@@ -67,7 +75,8 @@ const Products: React.FC = () => {
                   {product.description}
                 </p>
                 <div className="mt-6 h-48 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
-                  <span className="text-gray-500 dark:text-gray-400">Product Image</span>
+                  {/* <span className="text-gray-500 dark:text-gray-400">Product Image</span> */}
+                  <img src={product.image} alt={product.name} className="w-full h-full rounded-lg object-cover" />
                 </div>
               </motion.div>
             ))}
