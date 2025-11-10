@@ -1,4 +1,3 @@
-// src/sections/Overview.tsx
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
